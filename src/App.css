@@ -44,3 +44,7 @@ ul {
 .Todo-List li {
   list-style-type: none;
 }
+
+.error {
+  color: red;
+}
