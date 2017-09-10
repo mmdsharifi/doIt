@@ -5,28 +5,23 @@ import { TodoForm, TodoList } from './component/todo';
 import { addTodo, generateId } from './lib/todoHelpers'
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: [
-        { id: 1, name: "Learn JSX", isComplete: true },
-        { id: 2, name: "Build an asome app", isComplete: false },
-        { id: 3, name: "Ship it!", isComplete: false },
-      ],
-      currentTodo: ''
-    }
-    this.handelInputChange = this.handelInputChange.bind(this);
-    this.handelSubmit = this.handelSubmit.bind(this);
-    this.handelEmpty = this.handelEmpty.bind(this);
+  state = {
+    todos: [
+      { id: 1, name: "Learn JSX", isComplete: true },
+      { id: 2, name: "Build an asome app", isComplete: false },
+      { id: 3, name: "Ship it!", isComplete: false },
+    ],
+    currentTodo: ''
   }
-  handelInputChange(event) {
+
+  handelInputChange = (event) => {
     this.setState({
       currentTodo: event.target.value
     })
 
   }
 
-  handelSubmit(event) {
+  handelSubmit = (event) => {
     event.preventDefault()
     const Id = generateId();
     const todo = { id: Id, name: this.state.currentTodo, isComplete: false }
@@ -38,7 +33,7 @@ class App extends Component {
     })
   }
 
-  handelEmpty(event) {
+  handelEmpty = (event) => {
     event.preventDefault()
     this.setState({
       errorMessage: 'Please supply a todo name'
